@@ -1,10 +1,32 @@
 <template>
 <div>
     <h1>Calculadora Basica</h1>
-    <input type="number" v-model="n1">
-    <input type="number" v-model="n2">
-    <button @click="suma(n1,n2)">Sumar</button>
-    <button @click="resta(n1,n2)">Restar</button>
+    <v-text-field
+        type="number"
+        label="Numero 1"
+        :rules="rules"
+        hide-details="auto"
+        v-model="n1"
+    ></v-text-field>
+    <v-text-field
+        type="number"
+        label="Numero 2"
+        :rules="rules"
+        hide-details="auto"
+        v-model="n2"
+    ></v-text-field>
+    <v-btn
+        color="primary"
+        elevation="13"
+        rounded
+        @click="suma(n1,n2)"
+    >Sumar</v-btn>
+        <v-btn
+        color="primary"
+        elevation="13"
+        rounded
+        @click="resta(n1,n2)"
+    >Restar</v-btn>
     <span>{{ resultado }}</span>
 </div>
 </template>
@@ -16,7 +38,11 @@ export default {
         return{
             n1: null, 
             n2: null, 
-            resultado: ""
+            resultado: "",
+            rules: [
+            value => !!value || 'Requerido.',
+            value => (value && value.length >= 3) || 'Min 3 caracteres',
+            ],
         }
     },
     methods: {
