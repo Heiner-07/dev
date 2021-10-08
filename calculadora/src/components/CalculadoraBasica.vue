@@ -25,7 +25,7 @@
             ></v-text-field>
         </v-col>
     </v-row>
-    <v-row>
+    <v-row class="text-center">
         <v-col>
             <v-btn
                 color="primary"
@@ -88,7 +88,11 @@ export default {
             this.resultado = parseFloat(this.n1) * parseFloat(this.n2);
         },
         division(n1,n2){
-            this.resultado = parseFloat(this.n1) / parseFloat(this.n2);
+            if (this.n2 == 0){
+                alert("El numero debe ser diferente de cero")
+            }else{
+                this.resultado = parseFloat(this.n1) / parseFloat(this.n2);
+            }
         }
     },
 }

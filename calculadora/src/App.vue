@@ -1,25 +1,17 @@
 <template>
-  <v-app>
-    <v-main>
-      <calculadora-basica/>  
-    </v-main>
-  </v-app>
+  <v-container>
+    <!--<div id="app">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>-->
+      <v-main>
+        <router-view/>
+      </v-main>
+    <!--</div>-->
+  </v-container>
 </template>
 
-<script>
-import CalculadoraBasica from './components/CalculadoraBasica.vue';
+<style>
 
-
-export default {
-  name: 'App',
-
-  components: {
-    CalculadoraBasica
-    
-  },
-
-  data: () => ({
-    //
-  }),
-};
-</script>
+</style>
